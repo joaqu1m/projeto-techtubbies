@@ -1,0 +1,133 @@
+body {
+    margin: 0px;
+    font: arial;
+    background-color: rgb(91, 189, 255);
+}
+
+.grandTainer {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    height: 700px;
+    width: 80vw;
+    margin-top: 25px;
+}
+
+.container .header {
+    height: 250px;
+    width: 100%;
+    background-color: transparent;
+}
+
+/*
+TOP HEADER
+*/
+.container .header .topHeader {
+    height: 150px;
+    width: 100%;
+    display: flex;
+}
+.topHeader .img {
+    height: 150px;
+    width: 150px;
+    cursor: pointer;
+}
+
+/*
+MIDDLE HEADER
+*/
+.container .header .middleHeader {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    font-size: 20px;
+    font-weight: bold;
+}
+.windowPo {
+    height: 50px;
+    width: 150px;
+    background-color: #f00404;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #2c0000;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    cursor: pointer;
+}
+.windowTinkyWin {
+    height: 50px;
+    width: 150px;
+    background-color: #3f106b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #851be9;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    cursor: pointer;
+}
+.windowLala {
+    height: 50px;
+    width: 150px;
+    background-color: #faff00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #5c5e01;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    cursor: pointer;
+}
+.windowDipsy {
+    height: 50px;
+    width: 150px;
+    background-color: #66eb4f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #154e0a;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    cursor: pointer;
+}
+
+/*
+BOTTOM HEADER
+*/
+.bottomHeaderPo {
+    height: 50px;
+    width: 100%;
+    background-color: #d50606;
+    border-top-right-radius: 15px;
+}
+.bottomHeaderTinkyWin {
+    height: 50px;
+    width: 100%;
+    background-color: #3f205d;
+    border-top-right-radius: 15px;
+}
+.bottomHeaderLala {
+    height: 50px;
+    width: 100%;
+    background-color: #d7db00;
+    border-top-right-radius: 15px;
+}
+.bottomHeaderDipsy {
+    height: 50px;
+    width: 100%;
+    background-color: #55d13f;
+    border-top-right-radius: 15px;
+}
+
+/*
+BLOG
+*/
+.text {
+    height: 1000px;
+    width: 100%;
+    background-color: white;
+
+}

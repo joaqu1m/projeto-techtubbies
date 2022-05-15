@@ -153,3 +153,8 @@ BLOG
     background-color: white;
 
 }
+.TV {
+    height: 711px;
+    width: 280px;
+    background-image: url(".././assets/imgs/tubbyTV.png");
+}

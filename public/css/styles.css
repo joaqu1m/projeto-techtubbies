@@ -17,7 +17,7 @@ body {
 HEADER
 */
 .container .header {
-    height: 100%;
+    height: 105%;
     width: 100%;
     background-color: transparent;
 }
@@ -25,7 +25,7 @@ HEADER
 TOP HEADER
 */
 .container .header .topHeader {
-    height: 60%;
+    height: 65%;
     width: 100%;
     display: flex;
 }
@@ -113,7 +113,7 @@ MIDDLE HEADER
     cursor: pointer;
 }
 .logoName {
-    width: 34%;
+    width: 30%;
     margin-left: 8%;
     background-size: cover;
 }
@@ -142,6 +142,51 @@ BOTTOM HEADER
     height: 20%;
     width: 100%;
     background-color: #55d13f;
+    border-top-right-radius: 15px;
+}
+/*
+HEADER DARK MODE
+*/
+.topHeader .imgPoVer2 {
+    width: 13%;
+    cursor: pointer;
+    background-image: url(".././assets/imgs/po-ver2.png");
+    background-size: cover;
+}
+.topHeader .imgTinkyWinVer2 {
+    width: 13%;
+    cursor: pointer;
+    background-image: url(".././assets/imgs/tinkyWin-ver2.png");
+    background-size: cover;
+}
+.topHeader .imgLalaVer2 {
+    width: 13%;
+    cursor: pointer;
+    background-image: url(".././assets/imgs/lala-ver2.png");
+    background-size: cover;
+}
+.topHeader .imgDipsyVer2 {
+    width: 13%;
+    cursor: pointer;
+    background-image: url(".././assets/imgs/dipsy-ver2.png");
+    background-size: cover;
+}
+.window {
+    height: 100%;
+    width: 13%;
+    background-color: #2a2a2a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffdcdc;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    cursor: pointer;
+}
+.bottomHeader {
+    height: 20%;
+    width: 100%;
+    background-color: #2a2a2a;
     border-top-right-radius: 15px;
 }
 /*

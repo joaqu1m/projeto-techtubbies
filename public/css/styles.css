@@ -14,10 +14,10 @@ body {
 }
 
 /*
-HEADER
+INICIO DO HEADER
 */
 .container .header {
-    height: 100%;
+    height: 250px;
     width: 100%;
     background-color: transparent;
 }
@@ -25,170 +25,94 @@ HEADER
 TOP HEADER
 */
 .container .header .topHeader {
-    height: 60%;
+    height: 150px;
     width: 100%;
     display: flex;
 }
-.topHeader .imgPo {
+.topHeader .imgHead {
     width: 13%;
     cursor: pointer;
-    background-image: url(".././assets/imgs/poAntenna.png");
     background-size: cover;
+}
+.topHeader .imgPo {
+    background-image: url(".././assets/imgs/poAntenna.png");
 }
 .topHeader .imgTinkyWin {
-    width: 13%;
-    cursor: pointer;
     background-image: url(".././assets/imgs/tinkyWinAntenna.png");
-    background-size: cover;
 }
 .topHeader .imgLala {
-    width: 13%;
-    cursor: pointer;
     background-image: url(".././assets/imgs/lalaAntenna.png");
-    background-size: cover;
 }
 .topHeader .imgDipsy {
-    width: 13%;
-    cursor: pointer;
     background-image: url(".././assets/imgs/dipsyAntenna.png");
-    background-size: cover;
 }
 /*
 MIDDLE HEADER
 */
 .container .header .middleHeader {
-    height: 20%;
+    height: 50px;
     width: 100%;
     display: flex;
     font-size: 1.3vw;
     font-family: "Arial Black";
     font-weight: bold;
 }
-.windowPo {
+.window {
     height: 100%;
     width: 13%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 20%;
+    border-top-right-radius: 20%;
+    cursor: pointer;
+}
+.windPo {
     background-color: #f00404;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     color: #ffdcdc;
-    border-top-left-radius: 20%;
-    border-top-right-radius: 20%;
-    cursor: pointer;
 }
-.windowTinkyWin {
-    height: 100%;
-    width: 13%;
+.windTinkyWin {
     background-color: #3f106b;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     color: #d5a8ff;
-    border-top-left-radius: 20%;
-    border-top-right-radius: 20%;
-    cursor: pointer;
 }
-.windowLala {
-    height: 100%;
-    width: 13%;
+.windLala {
     background-color: #faff00;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     color: #4d4e09;
-    border-top-left-radius: 20%;
-    border-top-right-radius: 20%;
-    cursor: pointer;
 }
-.windowDipsy {
-    height: 100%;
-    width: 13%;
+.windDipsy {
     background-color: #66eb4f;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     color: #154e0a;
-    border-top-left-radius: 20%;
-    border-top-right-radius: 20%;
-    cursor: pointer;
 }
 .logoName {
-    width: 34%;
+    width: 33%;
     margin-left: 8%;
     background-size: cover;
 }
 /*
 BOTTOM HEADER
 */
-.bottomHeaderPo {
-    height: 20%;
+.bottomHeaderGeneral {
+    height: 50px;
     width: 100%;
-    background-color: #d50606;
     border-top-right-radius: 15%;
+}
+.bottomHeaderPo {
+    background-color: #d50606;
 }
 .bottomHeaderTinkyWin {
-    height: 20%;
-    width: 100%;
     background-color: #3f205d;
-    border-top-right-radius: 15%;
 }
 .bottomHeaderLala {
-    height: 20%;
-    width: 100%;
     background-color: #fff45a;
-    border-top-right-radius: 15%;
 }
 .bottomHeaderDipsy {
-    height: 20%;
-    width: 100%;
     background-color: #55d13f;
-    border-top-right-radius: 15%;
 }
 /*
-HEADER DARK MODE
+FIM DO HEADER
 */
-.topHeader .imgPoVer2 {
-    width: 13%;
-    cursor: pointer;
-    background-image: url(".././assets/imgs/po-ver2.png");
-    background-size: cover;
-}
-.topHeader .imgTinkyWinVer2 {
-    width: 13%;
-    cursor: pointer;
-    background-image: url(".././assets/imgs/tinkyWin-ver2.png");
-    background-size: cover;
-}
-.topHeader .imgLalaVer2 {
-    width: 13%;
-    cursor: pointer;
-    background-image: url(".././assets/imgs/lala-ver2.png");
-    background-size: cover;
-}
-.topHeader .imgDipsyVer2 {
-    width: 13%;
-    cursor: pointer;
-    background-image: url(".././assets/imgs/dipsy-ver2.png");
-    background-size: cover;
-}
-.window {
-    height: 100%;
-    width: 13%;
-    background-color: #2a2a2a;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #ffdcdc;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    cursor: pointer;
-}
-.bottomHeader {
-    height: 20%;
-    width: 100%;
-    background-color: #2a2a2a;
-    border-top-right-radius: 15px;
-}
+
+
 /*
 BLOG
 */

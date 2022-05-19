@@ -17,7 +17,7 @@ body {
 HEADER
 */
 .container .header {
-    height: 105%;
+    height: 100%;
     width: 100%;
     background-color: transparent;
 }
@@ -25,7 +25,7 @@ HEADER
 TOP HEADER
 */
 .container .header .topHeader {
-    height: 65%;
+    height: 60%;
     width: 100%;
     display: flex;
 }
@@ -60,7 +60,7 @@ MIDDLE HEADER
     height: 20%;
     width: 100%;
     display: flex;
-    font-size: 15px;
+    font-size: 1.3vw;
     font-family: "Arial Black";
     font-weight: bold;
 }
@@ -72,8 +72,8 @@ MIDDLE HEADER
     justify-content: center;
     align-items: center;
     color: #ffdcdc;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    border-top-left-radius: 20%;
+    border-top-right-radius: 20%;
     cursor: pointer;
 }
 .windowTinkyWin {
@@ -84,8 +84,8 @@ MIDDLE HEADER
     justify-content: center;
     align-items: center;
     color: #d5a8ff;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    border-top-left-radius: 20%;
+    border-top-right-radius: 20%;
     cursor: pointer;
 }
 .windowLala {
@@ -96,8 +96,8 @@ MIDDLE HEADER
     justify-content: center;
     align-items: center;
     color: #4d4e09;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    border-top-left-radius: 20%;
+    border-top-right-radius: 20%;
     cursor: pointer;
 }
 .windowDipsy {
@@ -108,12 +108,12 @@ MIDDLE HEADER
     justify-content: center;
     align-items: center;
     color: #154e0a;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    border-top-left-radius: 20%;
+    border-top-right-radius: 20%;
     cursor: pointer;
 }
 .logoName {
-    width: 30%;
+    width: 34%;
     margin-left: 8%;
     background-size: cover;
 }
@@ -124,25 +124,25 @@ BOTTOM HEADER
     height: 20%;
     width: 100%;
     background-color: #d50606;
-    border-top-right-radius: 15px;
+    border-top-right-radius: 15%;
 }
 .bottomHeaderTinkyWin {
     height: 20%;
     width: 100%;
     background-color: #3f205d;
-    border-top-right-radius: 15px;
+    border-top-right-radius: 15%;
 }
 .bottomHeaderLala {
     height: 20%;
     width: 100%;
     background-color: #fff45a;
-    border-top-right-radius: 15px;
+    border-top-right-radius: 15%;
 }
 .bottomHeaderDipsy {
     height: 20%;
     width: 100%;
     background-color: #55d13f;
-    border-top-right-radius: 15px;
+    border-top-right-radius: 15%;
 }
 /*
 HEADER DARK MODE
@@ -199,7 +199,14 @@ BLOG
 
 }
 .TV {
-    height: 711px;
-    width: 280px;
+    height: 355px;
+    width: 140px;
     background-image: url(".././assets/imgs/tubbyTV.png");
+    background-size: cover;
+}
+.TV .videoFrame {
+    width: 50%;
+    height: 16%;
+    margin-top: 129%;
+    margin-left: 29%;
 }

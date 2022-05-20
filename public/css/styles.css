@@ -19,7 +19,9 @@ INICIO DO HEADER
 .container .header {
     height: 250px;
     width: 100%;
+    min-height: 250px;
     background-color: transparent;
+    
 }
 /*
 TOP HEADER
@@ -27,6 +29,7 @@ TOP HEADER
 .container .header .topHeader {
     height: 150px;
     width: 100%;
+    min-height: 150px;
     display: flex;
 }
 .topHeader .imgHead {
@@ -52,6 +55,7 @@ MIDDLE HEADER
 .container .header .middleHeader {
     height: 50px;
     width: 100%;
+    min-height: 50px;
     display: flex;
     font-size: 1.3vw;
     font-family: "Arial Black";
@@ -85,8 +89,7 @@ MIDDLE HEADER
 }
 .logoName {
     width: 33%;
-    margin-left: 8%;
-    background-size: cover;
+    margin-left: 5%;
 }
 /*
 BOTTOM HEADER
@@ -94,6 +97,7 @@ BOTTOM HEADER
 .bottomHeaderGeneral {
     height: 50px;
     width: 100%;
+    min-height: 50px;
     border-top-right-radius: 15%;
 }
 .bottomHeaderPo {

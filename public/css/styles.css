@@ -40,14 +40,26 @@ TOP HEADER
 .topHeader .imgPo {
     background-image: url(".././assets/imgs/poAntenna.png");
 }
+.PoUnico {
+    background-image: url(".././assets/imgs/po.png");
+}
 .topHeader .imgTinkyWin {
     background-image: url(".././assets/imgs/tinkyWinAntenna.png");
+}
+.TinkyWinUnico {
+    background-image: url(".././assets/imgs/tinkyWin.png");
 }
 .topHeader .imgLala {
     background-image: url(".././assets/imgs/lalaAntenna.png");
 }
+.LalaUnico {
+    background-image: url(".././assets/imgs/lala.png");
+}
 .topHeader .imgDipsy {
     background-image: url(".././assets/imgs/dipsyAntenna.png");
+}
+.DipsyUnico {
+    background-image: url(".././assets/imgs/dipsy.png");
 }
 /*
 MIDDLE HEADER
@@ -75,17 +87,29 @@ MIDDLE HEADER
     background-color: #f00404;
     color: #ffdcdc;
 }
+.middlePoUnico {
+    background-color: #d50606;
+}
 .windTinkyWin {
     background-color: #3f106b;
     color: #d5a8ff;
+}
+.middleTinkyWinUnico {
+    background-color: #3f205d;
 }
 .windLala {
     background-color: #faff00;
     color: #4d4e09;
 }
+.middleLalaUnico {
+    background-color: #fff45a;
+}
 .windDipsy {
     background-color: #66eb4f;
     color: #154e0a;
+}
+.middleDipsyUnico {
+    background-color: #55d13f;
 }
 .logoName {
     width: 33%;
@@ -114,6 +138,35 @@ BOTTOM HEADER
 }
 /*
 FIM DO HEADER
+*/
+
+/*
+INICIO DO DARK MODE HEADER
+*/
+.darkBackground {
+    background-image: url(".././assets/imgs/background-night.png");
+}
+.topHeader .darkImgPo {
+    background-image: url(".././assets/imgs/po-ver2.png");
+}
+.topHeader .darkImgTinkyWin {
+    background-image: url(".././assets/imgs/tinkyWin-ver2.png");
+}
+.topHeader .darkImgLala {
+    background-image: url(".././assets/imgs/lala-ver2.png");
+}
+.topHeader .darkImgDipsy {
+    background-image: url(".././assets/imgs/dipsy-ver2.png");
+}
+.windDark {
+    background-color: #2a2a2a;
+    color: #a0a0a0;
+}
+.bottomHeaderDark {
+    background-color: #2a2a2a;
+}
+/*
+FIM DO DARK MODE HEADER
 */
 
 

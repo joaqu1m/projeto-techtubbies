@@ -13,22 +13,23 @@
     <div class="container">
         <div class="header">
             <div class="topHeader">
-                <div class="imgHead imgPo" onclick="location.href='./index.html';"></div>
-                <div class="imgHead imgTinkyWin" onclick="location.href='./curiosidades.html';"></div>
-                <div class="imgHead imgLala" onclick="location.href='./comunidade.html';"></div>
-                <div class="imgHead imgDipsy" style="background-image: url(./assets/imgs/dipsy.png); cursor: default;"></div>
+                <div id="idImgPo" class="imgHead imgPo" onclick="location.href='./index.html';"></div>
+                <div id="idImgTinkyWin" class="imgHead imgTinkyWin" onclick="location.href='./curiosidades.html';"></div>
+                <div id="idImgLala" class="imgHead imgLala" onclick="location.href='./comunidade.html';"></div>
+                <div id="idImgDipsy" class="imgHead DipsyUnico" style="cursor: default;"></div>
             </div>
             <div class="middleHeader">
-                <div class="window windPo" onclick="location.href='./index.html';">Home</div>
-                <div class="window windTinkyWin" onclick="location.href='./curiosidades.html';">Curiosidades</div>
-                <div class="window windLala" onclick="location.href='./comunidade.html';">Comunidade</div>
-                <div class="window windDipsy" style="background-color: #55d13f; cursor: default;">Minijogos</div>
-                <img class="logoName" src="./assets/imgs/techtubbiesDipsy.png">
+                <div id="idWindPo" class="window windPo" onclick="location.href='./index.html';">Home</div>
+                <div id="idWindTinkyWin" class="window windTinkyWin" onclick="location.href='./curiosidades.html';">Curiosidades</div>
+                <div id="idWindLala" class="window windLala" onclick="location.href='./comunidade.html';">Comunidade</div>
+                <div id="idWindDipsy" class="window windDipsy middleDipsyUnico" style="cursor: default;">Minijogos</div>
+                <img id="idLogoName" class="logoName" src="./assets/imgs/techtubbiesDipsy.png">
             </div>
-            <div class="bottomHeaderGeneral bottomHeaderDipsy"></div>
+            <div id="idBottomHeader" class="bottomHeaderGeneral bottomHeaderDipsy"></div>
         </div>
         <div class="pagina"></div>
     </div>
 </body>
 
 </html>
+<script src="js/changeMode.js"></script>

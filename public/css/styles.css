@@ -1,6 +1,6 @@
 body {
     margin: 0px;
-    font: arial;
+    font-family: arial;
     background-image: url(".././assets/imgs/background-sky.png");
     background-size: cover;
     display: flex;
@@ -21,7 +21,6 @@ INICIO DO HEADER
     width: 100%;
     min-height: 250px;
     background-color: transparent;
-    
 }
 /*
 TOP HEADER
@@ -174,14 +173,15 @@ FIM DO DARK MODE HEADER
 BLOG
 */
 .pagina {
-    height: 2000px;
     width: 100%;
     background-color: white;
-
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 50px;
 }
 .TV {
-    height: 355px;
-    width: 140px;
+    height: 100%;
+    width: 18%;
     background-image: url(".././assets/imgs/tubbyTV.png");
     background-size: cover;
 }
@@ -190,4 +190,84 @@ BLOG
     height: 16%;
     margin-top: 129%;
     margin-left: 29%;
+}
+.indexHello {
+    width: 30%;
+    align-self: center;
+    margin-top: 20px;
+}
+.pagina .title {
+    width: 90%;
+    font-size: 200%;
+    text-align: center;
+    align-self: center;
+    font-weight: bold;
+}
+.text1 {
+    width: 90%;
+    font-size: 150%;
+    text-align: center;
+    align-self: center;
+}
+.cardAPI {
+    width: 70%;
+    height: 400px;
+    align-self: center;
+    border-radius: 20px;
+    border: 3px double black;
+    display: flex;
+    font-size: 130%;
+}
+.cardAPI .left {
+    width: 49.9%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.cardAPI .middle {
+    width: 0.2%;
+    height: 90%;
+    background-color: black;
+    margin: auto;
+}
+.cardAPI .right {
+    width: 49.9%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.cardAPI .right input {
+    width: 60%;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.cardAPI .right button {
+    width: 30%;
+    height: 30px;
+    border: 0px;
+    transition: 0.2s;
+    background-color: rgb(221, 221, 221);
+    color: rgb(94, 94, 94);
+    border-radius: 5px;
+    font-family: "Arial Black";
+}
+.cardAPI .right button:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.itensAlinhados {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+}
+.text2 {
+    width: 30%;
+    height: 100%;
+    font-size: 150%;
 }

@@ -13,6 +13,15 @@ body {
     margin-top: 3%;
 }
 
+.arrowUp {
+    width: 10vw;
+    position: fixed;
+    margin-top: 100vh;
+    margin-left: 80vw;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
 /*
 INICIO DO HEADER
 */

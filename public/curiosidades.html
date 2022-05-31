@@ -30,17 +30,17 @@
         <div class="pagina">
             <br>
             <div class="text1">
-                Aqui serão listados alguns tópicos de curiosidades sobre os tubbies, informações intrigantes e alguns acontecimentos estranhos
+                Aqui serão listados alguns tópicos de curiosidades sobre os tubbies
             </div>
             <br>
             <div class="text1" style="text-align: left;">
                 <ul>
-                    <li>Habitat</li>
-                    <li>Dieta</li>
-                    <li>Anatomia</li>
-                    <li>Definição de Gênero</li>
-                    <li>Inteligência</li>
-                    <li>Natureza</li> !-- esses botoes serão clicáveis e irão direcionar para o lugar certo na página
+                    <li style="cursor: pointer;" onclick="scroll1()">Habitat</li>
+                    <li style="cursor: pointer;" onclick="scroll2()">Dieta</li>
+                    <li style="cursor: pointer;" onclick="scroll3()">Anatomia</li>
+                    <li style="cursor: pointer;" onclick="scroll4()">Definição de Gênero</li>
+                    <li style="cursor: pointer;" onclick="scroll5()">Inteligência</li>
+                    <li style="cursor: pointer;" onclick="scroll6()">Natureza</li>
                 </ul>
             </div>
             <br>
@@ -91,3 +91,12 @@
 
 </html>
 <script src="js/changeMode.js"></script>
+<script src="js/scrollUp.js"></script>
+<script>
+    function scroll1() {
+        window.scrollTo(0, 580)
+    }
+    function scroll2() {
+        window.scrollTo(0, 1190)
+    }
+</script>

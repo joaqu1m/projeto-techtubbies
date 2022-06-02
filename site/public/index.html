@@ -88,18 +88,17 @@
 <script>
     // lembre-se do npm run dev!!!
     function cadastrar() {
-        
-            var ano = Number(ano_input.value);
-            var hoje = new Date();
-            var idade_input = hoje.getFullYear() - ano;
-            alert(idade);
         aguardar();
+
+        var ano = Number(ano_input.value);
+        var hoje = new Date();
+        var idade_input = hoje.getFullYear() - ano;
 
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
         var nomeVar = nome_input.value;
         var emailVar = email_input.value;
-        var idadeVar = idade_input.value;
+        var idadeVar = idade_input  ;
         var senhaVar = 'testeDeSenha';
         var confirmacaoSenhaVar = 'testeDeSenha';
 
@@ -126,6 +125,7 @@
                 // Agora vá para o arquivo routes/usuario.js
                 nomeServer: nomeVar,
                 emailServer: emailVar,
+                idadeServer: idadeVar,
                 senhaServer: senhaVar
             })
         }).then(function (resposta) {
@@ -138,7 +138,7 @@
 
                 // mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
-                alert('Erro no BD local')
+                alert('Cadastro realizado com sucesso! Redirecionando para tela de Login...')
 
                 
                 limparFormulario();

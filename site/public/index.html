@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js/funcoes.js"></script>
-    <script src="js/changeMode.js"></script>
     <script src="js/scrollUp.js"></script>
     <link rel="stylesheet" href="css/styles.css">
     <title>TechTubbies</title>
@@ -19,13 +18,13 @@
                 <div id="idImgPo" class="imgHead PoUnico" style="cursor: default;"></div>
                 <div id="idImgTinkyWin" class="imgHead imgTinkyWin" onclick="location.href='./curiosidades.html';"></div>
                 <div id="idImgLala" class="imgHead imgLala" onclick="location.href='./comunidade.html';"></div>
-                <div id="idImgDipsy" class="imgHead imgDipsy" onclick="location.href='./minijogos.html';"></div>
+                <div id="idImgDipsy" class="imgHead imgDipsy" onclick="location.href='./extras.html';"></div>
             </div>
             <div class="middleHeader">
                 <div id="idWindPo" class="window windPo middlePoUnico" style="cursor: default;">Home</div>
                 <div id="idWindTinkyWin" class="window windTinkyWin" onclick="location.href='./curiosidades.html';">Curiosidades</div>
                 <div id="idWindLala" class="window windLala" onclick="location.href='./comunidade.html';">Comunidade</div>
-                <div id="idWindDipsy" class="window windDipsy" onclick="location.href='./minijogos.html';">Extras</div>
+                <div id="idWindDipsy" class="window windDipsy" onclick="location.href='./extras.html';">Extras</div>
                 <img id="idLogoName" class="logoName" src="./assets/imgs/techtubbiesPo.png">
             </div>
             <div id="idBottomHeader" class="bottomHeaderGeneral bottomHeaderPo"></div>
@@ -70,12 +69,11 @@
                     <input id="nome_input" placeholder="Nome">
                     <br>
                     <input id="email_input" placeholder="E-mail">
+                    <br>
+                    <input id="ano_input" placeholder="Ano de nascimento">
                     <br><br>
                     <button onclick="cadastrar()">INSCREVA-SE</button>
                 </div>
-            </div>
-            <div class="cardAPI">
-                Pessoas inscritas no Newsletter: <span id="pessoasCount">erro</span>
             </div>
         </div>
     </div>
@@ -86,20 +84,26 @@
 </body>
 
 </html>
+<script src="js/changeMode.js"></script>
 <script>
     // lembre-se do npm run dev!!!
-    pessoasCount.innerHTML = ''
     function cadastrar() {
+        
+            var ano = Number(ano_input.value);
+            var hoje = new Date();
+            var idade_input = hoje.getFullYear() - ano;
+            alert(idade);
         aguardar();
 
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
         var nomeVar = nome_input.value;
         var emailVar = email_input.value;
+        var idadeVar = idade_input.value;
         var senhaVar = 'testeDeSenha';
         var confirmacaoSenhaVar = 'testeDeSenha';
 
-        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+        if (nomeVar == "" || emailVar == "" || idadeVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
             // cardErro.style.display = "block"
             // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
             alert('Preencha todos os campos para continuar')
@@ -110,7 +114,7 @@
         else {
             setInterval(sumirMensagem, 5000)
         }
-console.log("antes do fetch");
+    console.log("antes do fetch");
         // Enviando o valor da nova input
         fetch("/usuarios/cadastrar", {
             method: "POST",
@@ -196,8 +200,8 @@ console.log("antes do fetch");
 
         return false;
 
-        
-} 
+
+}
 </script>
 <!-- CÓDIGO PARA MINIGAMES
 <script>

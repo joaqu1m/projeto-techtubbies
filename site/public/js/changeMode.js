@@ -24,6 +24,8 @@ if (sessionStorage.mode == "night") {
     idBottomHeader.classList.add("bottomHeaderDark");
 
     idLogoName.src = "./assets/imgs/techtubbiesDark.png"
+
+    sessionStorage.jaFoiDark = true
 }
 function colorir() {
     if (sessionStorage.mode == "night") {

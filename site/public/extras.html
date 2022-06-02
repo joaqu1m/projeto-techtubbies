@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="js/funcoes.js"></script>
-    <script src="js/changeMode.js"></script>
     <script src="js/scrollUp.js"></script>
     <link rel="stylesheet" href="css/styles.css">
     <title>TechTubbies</title>
@@ -31,7 +29,10 @@
             <div id="idBottomHeader" class="bottomHeaderGeneral bottomHeaderDipsy"></div>
         </div>
         <div class="pagina">
-            <button onclick="location.href='html/cardMaker.html';">Perfil - Inacabado</button>
+            <div class="text1">
+                <button onclick="location.href='html/cardMaker.html';">Criador de Perfil</button>
+                <button onclick="colorir()" style="visibility: hidden;" id="btnDarkMode">Dark Mode</button>
+            </div>
         </div>
     </div>
     <div id="arrowUp" class="arrowUp" onclick="scroll0()">
@@ -40,3 +41,9 @@
 </body>
 
 </html>
+<script src="js/changeMode.js"></script>
+<script>
+    if (sessionStorage.jaFoiDark == "true") {
+        btnDarkMode.style.visibility = "visible"
+    }
+</script>

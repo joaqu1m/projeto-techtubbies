@@ -31,9 +31,9 @@
         input {
             width: 200px;
             height: 30px;
-            border: 1px solid black;
-            border-radius: 5px;
-            margin-top: 5px;
+            border: 0px;
+            border-bottom: 1px solid black;
+            outline: none;
             margin-bottom: 5px;
         }
 
@@ -96,7 +96,7 @@
             overflow: hidden;
         }
         #dataPerfil {
-            width: 100px;
+            width: 135px;
             height: 20px;
             font-size: 20px;
             overflow: hidden;
@@ -107,23 +107,48 @@
             height: 1px;
             background-color: gray;
         }
+
+        .cardMakerTitle {
+            font-size: 50%;
+        }
+        
+        #btnDownload {
+            width: 180px;
+            height: 60px;
+            font-size: 25px;
+            background-color: rgb(231, 0, 0);
+            color: white;
+            border: 0px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-family: "Arial Black";
+            transition: 0.2s;
+            visibility: hidden;
+        }
+        #btnDownload:hover {
+            transform: scale(1.1);
+        }
     </style>
 </head>
 
 <body>
     <div class="container" style="margin-top: 0px;">
-        <div class="pagina" style="height: 100vh;">
+        <div class="pagina" style="height: 110vh;">
             <button id="btnVoltar" onclick="location.href='.././minijogos.html';">VOLTAR</button>
             <br>
             <div class="text1">
                 <h2>Gerador de Perfil Automático</h2>
                 Primeiramente, insira seus dados
                 <br><br>
-                <input placeholder="Nome" id="inNome">
+                <span class="cardMakerTitle">Nome</span>
                 <br>
-                <input type="number" id="inDia" style="width: 60px;" placeholder="Dia">
-                <input type="number" id="inMes" style="width: 60px;" placeholder="M">
-                <input type="number" id="inAno" style="width: 90px;" placeholder="Ano">
+                <input placeholder="Fulano Ciclano" id="inNome">
+                <br>
+                <span class="cardMakerTitle">Data de Nascimento</span>
+                <br>
+                <input maxlength="2" onkeypress="return event.charCode >= 48 && event.charCode <= 57" id="inDia" style="width: 50px;" placeholder="Dia">
+                <input maxlength="2" onkeypress="return event.charCode >= 48 && event.charCode <= 57" id="inMes" style="width: 50px;" placeholder="Mês">
+                <input maxlength="4" onkeypress="return event.charCode >= 48 && event.charCode <= 57" id="inAno" style="width: 70px;" placeholder="Ano">
                 <br>
                 <select id="selCor">
                     <option value="0">Selecione uma cor</option>
@@ -131,18 +156,29 @@
                     <option value="2">Verde</option>
                     <option value="3">Amarelo</option>
                     <option value="4">Roxo</option>
+                    <option value="5">Rosa</option>
+                    <option value="6">Cinza</option>
+                    <option value="7">Azul</option>
                 </select>
                 <br>
                 <button id="btnRegistrar" onclick="registrar()">REGISTRO</button>
             </div>
             <div id="cardPerfil">
-                <div id="fotoPerfil"></div>
+                <div id="fotoPerfil" style="background-image: url('https://joaqu1m.github.io/projeto-techtubbies/site/public/assets/imgs/dipsy.png');"></div>
                 <div id="infoPerfil">
                     <div id="titlePerfil"></div>
                     <div id="barPerfil"></div>
+                    
                     <div id="dataPerfil"></div>
-                    <div id="barPerfil" style="width: 100px;"></div>
+                    <div id="barPerfil" style="width: 135px;"></div>
+                    <div style="margin-top: 100px;">Membro Oficial</div>
+                    <img src=".././assets/imgs/techtubbiesLogo.png" width="300px">
                 </div>
+            </div>
+            <br>
+            <div class="text1">
+                &nbsp;
+            <button id="btnDownload" onclick="download()">DOWNLOAD</button>
             </div>
         </div>
     </div>
@@ -150,6 +186,8 @@
 
 </html>
 <script>
+    var foto = ''
+
     function registrar() {
         var nome = inNome.value
         var dia = inDia.value
@@ -157,23 +195,132 @@
         var ano = inAno.value
         var cor = selCor.value
 
+        if (dia.length == 1) {
+            dia = `0${dia}`
+        }
+        if (mes.length == 1) {
+            mes = `0${mes}`
+        }
+        if (ano.length == 1) {
+            ano = `000${ano}`
+        } else if (ano.length == 2) {
+            ano = `00${ano}`
+        } else if (ano.length == 3) {
+            ano = `0${ano}`
+        }
+
         if (nome == '' || dia == 0 || mes == 0 || ano == 0 || cor == 0) {
             alert('Preencha todos os campos para continuar')
             return
         }
+        if (dia <= 0 || mes <= 0 || ano <= 0 || dia > 31 || mes > 12 || ano > (new Date().getFullYear())) {
+            alert('Data inválida')
+            return
+        }
 
         titlePerfil.innerHTML = nome
-        dataPerfil.innerHTML = `${dia}/${mes}/${ano}`
+        dataPerfil.innerHTML = `<span style="color: gray; font-size: 15px;">Nasc</span>${dia}/${mes}/${ano}`
         if (cor == 1) {
-            fotoPerfil.style.backgroundImage = "url('https://joaqu1m.github.io/projeto-techtubbies/public/assets/imgs/po.png')";
+            fotoPerfil.style.backgroundImage = "url('https://joaqu1m.github.io/projeto-techtubbies/site/public/assets/imgs/po.png')";
+            foto = "url('https://joaqu1m.github.io/projeto-techtubbies/site/public/assets/imgs/po.png')";
         } else if (cor == 2) {
-            fotoPerfil.style.backgroundImage = "url('https://joaqu1m.github.io/projeto-techtubbies/public/assets/imgs/dipsy.png')";
+            fotoPerfil.style.backgroundImage = "url('https://joaqu1m.github.io/projeto-techtubbies/site/public/assets/imgs/dipsy.png')";
+            foto = "url('https://joaqu1m.github.io/projeto-techtubbies/site/public/assets/imgs/dipsy.png')";
         } else if (cor == 3) {
-            fotoPerfil.style.backgroundImage = "url('https://joaqu1m.github.io/projeto-techtubbies/public/assets/imgs/lala.png')";
+            fotoPerfil.style.backgroundImage = "url('https://joaqu1m.github.io/projeto-techtubbies/site/public/assets/imgs/lala.png')";
+            foto = "url('https://joaqu1m.github.io/projeto-techtubbies/site/public/assets/imgs/lala.png')";
         } else if (cor == 4) {
-            fotoPerfil.style.backgroundImage = "url('https://joaqu1m.github.io/projeto-techtubbies/public/assets/imgs/tinkyWin.png')";
+            fotoPerfil.style.backgroundImage = "url('https://joaqu1m.github.io/projeto-techtubbies/site/public/assets/imgs/tinkyWin.png')";
+            foto = "url('https://joaqu1m.github.io/projeto-techtubbies/site/public/assets/imgs/tinkyWin.png')";
+        } else if (cor == 5) {
+            fotoPerfil.style.backgroundImage = "url('https://joaqu1m.github.io/projeto-techtubbies/site/public/assets/imgs/pink.png')";
+            foto = "url('https://joaqu1m.github.io/projeto-techtubbies/site/public/assets/imgs/pink.png')";
+        } else if (cor == 6) {
+            fotoPerfil.style.backgroundImage = "url('https://joaqu1m.github.io/projeto-techtubbies/site/public/assets/imgs/gray.png')";
+            foto = "url('https://joaqu1m.github.io/projeto-techtubbies/site/public/assets/imgs/gray.png')";
+        } else if (cor == 7) {
+            fotoPerfil.style.backgroundImage = "url('https://joaqu1m.github.io/projeto-techtubbies/site/public/assets/imgs/blue.png')";
+            foto = "url('https://joaqu1m.github.io/projeto-techtubbies/site/public/assets/imgs/blue.png')";
         }
 
         cardPerfil.style.visibility = 'visible';
+        btnDownload.style.visibility = 'visible';
+    }
+
+    function download() {
+
+        var filename = 'card.html'
+        var text =
+        `
+        <head>
+    <style>
+        #cardPerfil {
+            width: 512px;
+            height: 256px;
+            align-self: center;
+            border: 0.5px solid black;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: flex;
+        }
+        #fotoPerfil {
+            width: 150px;
+            height: 212px;
+            border: 0.5px solid gray;
+            margin-top: 22px;
+            margin-left: 22px;
+            background-size: cover;
+            background-position: center;
+        }
+        #infoPerfil {
+            width: 300px;
+            height: 212px;
+            margin-top: 22px;
+            margin-left: 10px;
+        }
+        #titlePerfil {
+            width: 300px;
+            height: 25px;
+            font-size: 25px;
+            overflow: hidden;
+        }
+        #dataPerfil {
+            width: 135px;
+            height: 20px;
+            font-size: 20px;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+        #barPerfil {
+            width: 300px;
+            height: 1px;
+            background-color: gray;
+        }
+
+        .cardMakerTitle {
+            font-size: 50%;
+        }
+    </style>
+</head>
+<div id="cardPerfil">
+    <div id="fotoPerfil" style="background-image: ${foto};"></div>
+    <div id="infoPerfil">
+        <div id="titlePerfil">${titlePerfil.innerHTML}</div>
+        <div id="barPerfil"></div>
+                    
+        <div id="dataPerfil">${dataPerfil.innerHTML}</div>
+        <div id="barPerfil" style="width: 135px;"></div>
+        <div style="margin-top: 100px;">Membro Oficial</div>
+        <img src="https://joaqu1m.github.io/projeto-techtubbies/site/public/assets/imgs/techtubbiesLogo.png" width="300px">
+     </div>
+</div>
+`
+
+        var element = document.createElement('a');
+        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+        element.setAttribute('download', filename);
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
     }
 </script>

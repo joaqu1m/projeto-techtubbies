@@ -6,7 +6,6 @@ body {
     display: flex;
     justify-content: center;
 }
-
 .container {
     height: 33vh;
     width: 80vw;
@@ -31,6 +30,7 @@ INICIO DO HEADER
     min-height: 250px;
     background-color: transparent;
 }
+
 /*
 TOP HEADER
 */
@@ -40,35 +40,45 @@ TOP HEADER
     min-height: 150px;
     display: flex;
 }
+
 .topHeader .imgHead {
     width: 13%;
     cursor: pointer;
     background-size: cover;
 }
+
 .topHeader .imgPo {
     background-image: url(".././assets/imgs/poAntenna.png");
 }
+
 .PoUnico {
     background-image: url(".././assets/imgs/po.png");
 }
+
 .topHeader .imgTinkyWin {
     background-image: url(".././assets/imgs/tinkyWinAntenna.png");
 }
+
 .TinkyWinUnico {
     background-image: url(".././assets/imgs/tinkyWin.png");
 }
+
 .topHeader .imgLala {
     background-image: url(".././assets/imgs/lalaAntenna.png");
 }
+
 .LalaUnico {
     background-image: url(".././assets/imgs/lala.png");
 }
+
 .topHeader .imgDipsy {
     background-image: url(".././assets/imgs/dipsyAntenna.png");
 }
+
 .DipsyUnico {
     background-image: url(".././assets/imgs/dipsy.png");
 }
+
 /*
 MIDDLE HEADER
 */
@@ -81,6 +91,7 @@ MIDDLE HEADER
     font-family: "Arial Black";
     font-weight: bold;
 }
+
 .window {
     height: 100%;
     width: 13%;
@@ -91,38 +102,48 @@ MIDDLE HEADER
     border-top-right-radius: 20%;
     cursor: pointer;
 }
+
 .windPo {
     background-color: #f00404;
     color: #ffdcdc;
 }
+
 .middlePoUnico {
     background-color: #d50606;
 }
+
 .windTinkyWin {
     background-color: #3f106b;
     color: #d5a8ff;
 }
+
 .middleTinkyWinUnico {
     background-color: #3f205d;
 }
+
 .windLala {
     background-color: #faff00;
     color: #4d4e09;
 }
+
 .middleLalaUnico {
     background-color: #fff45a;
 }
+
 .windDipsy {
     background-color: #66eb4f;
     color: #154e0a;
 }
+
 .middleDipsyUnico {
     background-color: #55d13f;
 }
+
 .logoName {
     width: 33%;
     margin-left: 5%;
 }
+
 /*
 BOTTOM HEADER
 */
@@ -132,18 +153,23 @@ BOTTOM HEADER
     min-height: 50px;
     border-top-right-radius: 15%;
 }
+
 .bottomHeaderPo {
     background-color: #d50606;
 }
+
 .bottomHeaderTinkyWin {
     background-color: #3f205d;
 }
+
 .bottomHeaderLala {
     background-color: #fff45a;
 }
+
 .bottomHeaderDipsy {
     background-color: #55d13f;
 }
+
 /*
 FIM DO HEADER
 */
@@ -154,25 +180,32 @@ INICIO DO DARK MODE HEADER
 .darkBackground {
     background-image: url(".././assets/imgs/background-night.png");
 }
+
 .topHeader .darkImgPo {
     background-image: url(".././assets/imgs/po-ver2.png");
 }
+
 .topHeader .darkImgTinkyWin {
     background-image: url(".././assets/imgs/tinkyWin-ver2.png");
 }
+
 .topHeader .darkImgLala {
     background-image: url(".././assets/imgs/lala-ver2.png");
 }
+
 .topHeader .darkImgDipsy {
     background-image: url(".././assets/imgs/dipsy-ver2.png");
 }
+
 .windDark {
     background-color: #2a2a2a;
     color: #a0a0a0;
 }
+
 .bottomHeaderDark {
     background-color: #2a2a2a;
 }
+
 /*
 FIM DO DARK MODE HEADER
 */
@@ -188,23 +221,27 @@ BLOG
     flex-direction: column;
     padding-bottom: 50px;
 }
+
 .TV {
     height: 100%;
     width: 18%;
     background-image: url(".././assets/imgs/tubbyTV.png");
     background-size: cover;
 }
+
 .TV .videoFrame {
     width: 50%;
     height: 16%;
     margin-top: 129%;
     margin-left: 29%;
 }
+
 .indexHello {
     width: 30%;
     align-self: center;
     margin-top: 20px;
 }
+
 .pagina .title {
     width: 90%;
     font-size: 200%;
@@ -212,12 +249,14 @@ BLOG
     align-self: center;
     font-weight: bold;
 }
+
 .text1 {
     width: 90%;
     font-size: 150%;
     text-align: center;
     align-self: center;
 }
+
 .cardAPI {
     width: 70%;
     height: 400px;
@@ -227,6 +266,7 @@ BLOG
     display: flex;
     font-size: 130%;
 }
+
 .cardAPI .left {
     width: 49.9%;
     height: 100%;
@@ -235,12 +275,14 @@ BLOG
     flex-direction: column;
     align-items: center;
 }
+
 .cardAPI .middle {
     width: 0.2%;
     height: 90%;
     background-color: black;
     margin: auto;
 }
+
 .cardAPI .right {
     width: 49.9%;
     height: 100%;
@@ -249,12 +291,14 @@ BLOG
     align-items: center;
     flex-direction: column;
 }
+
 .cardAPI .right input {
     width: 60%;
     height: 30px;
     border: 1px solid black;
     border-radius: 5px;
 }
+
 .cardAPI .right button {
     width: 30%;
     height: 30px;
@@ -265,19 +309,86 @@ BLOG
     border-radius: 5px;
     font-family: "Arial Black";
 }
+
 .cardAPI .right button:hover {
     transform: scale(1.1);
     cursor: pointer;
 }
+
 .itensAlinhados {
     width: 100%;
     height: 500px;
     display: flex;
     justify-content: center;
 }
+
 .text2 {
     width: 30%;
     height: 100%;
     font-size: 150%;
     text-align: justify;
 }
+
+#btnGraficos {
+    background-color: red;
+    border: 0px;
+    color: white;
+    font-family: "Arial Black";
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#btnGraficos:hover {
+    cursor: pointer;
+}
+/*
+GRAFICOS
+*/
+.dash {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 0vh;
+    visibility: hidden;
+    border: 1px solid black;
+}
+
+#b_usuario {
+    font-weight: 300;
+    font-weight: 800;
+    font-size: 1.2rem;
+}
+
+.btns-dash {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.btn-chart {
+    font-family: "Exo 2", sans-serif;
+    border: 0;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 10px 15px;
+    color: #e6005a;
+    background-color: rgb(255, 147, 201);
+    margin: 5px;
+    border-radius: 3px;
+}
+
+.tituloGraficos {
+    display: flex;
+    justify-content: center;
+}
+
+.graph {
+    width: 80%;
+    margin: auto;
+    padding-top: 10px;
+}
+/*
+FIM GRAFICOS
+*/

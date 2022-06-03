@@ -5,7 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <script src="js/scrollUp.js"></script>
+    
+    <link rel="icon" href="./assets/icon/favicon.ico">
     <link rel="stylesheet" href="css/styles.css">
     <title>TechTubbies</title>
 </head>
@@ -29,35 +32,36 @@
             <div id="idBottomHeader" class="bottomHeaderGeneral bottomHeaderLala"></div>
         </div>
         <div class="pagina">
-<!--
-    <div class="janela">
-        <div class="header-left">
-            <h1>Graficos</h1>
-
-            <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-            </div>
-
-        </div>
-
-        <div class="dash">
-            <div class="btns-dash">
-                O gráfico é chamado de acordo com o id (fk_aquario) do banco
-                <button class="btn-chart btn-pink" onclick="obterDadosGrafico(1)">Grafico 1</button>
-            </div>
-            <div>
-                <h3 class="tituloGraficos">
-                    <span id="tituloAquario">123</span>
-                </h3>
-            </div>
-            <div class="graph">
-                <canvas id="canvas_grafico"></canvas>
-            </div>
-        </div>
-    </div>
--->
+            <br>
             <div class="text1">
-                Clique <b onclick="colorir()" style="cursor: pointer;">aqui</b> para uma surpresa
+                Para mostrar os gráficos da comunidade:
+                <button id="btnGraficos" onclick="mostrarEsconder()">MOSTRAR</button>
+            </div>
+            <div class="dash" id="dash">
+                <h1>Gráficos - Em manutenção</h1>
+                <span id="b_usuario"></span>
+                <div class="btns-dash">
+                    <button class="btn-chart" onclick="obterDadosGrafico(1)">Grafico 1</button>
+                </div>
+                <div>
+                    <h3 class="tituloGraficos">
+                        <span id="tituloAquario">123</span>
+                    </h3>
+                </div>
+                <div class="graph">
+                    <canvas id="canvas_grafico"></canvas>
+                </div>
+            </div>
+            <div class="title" style="margin-top: 50px; margin-bottom: 30px;">Criações da comunidade</div>
+            <div class="text1">
+                Teletubbies é uma obra muito famosa e amada pelo público, e, com isso, vem uma maré de fãs fazendo conteúdo para complementar na fanbase. Muitas pessoas fazem edições de imagens engraçadas ou interessantes envolvendo os teletubbies, mesmo o seriado original já tendo acabado a muito tempo atrás.
+                <img src="./assets/imgs/kiss.jpg" width="80%" style="margin-top: 10px;"><br>
+            </div>
+            <div class="title" style="margin-top: 20px;">O lado obscuro do fandom</div>
+            <div class="text1" style="margin-top: 20px;">
+                Com isso, também vem as pessoas que tinham medo dos Teletubbies por serem criaturas muito altas e desengonçadas, além do seu visual macabro se visto em preto-e-branco. Com isso surgiram inúmeras fanarts amedrontadoras dos teletubbies, envolvendo assuntos como mortes e outros crimes pesados.
+                A partir disso, surgiram muitos jogos (também feitos por fãs) envolvendo o lado macabro dos teletubbies. O que mais se destacou se chama <b onclick="colorir()" style="cursor: pointer;">Slendytubbies</b>, uma adaptação do antigo jogo Slenderman com os Tubbies, que resultou em uma franquia com diversos jogos e histórias, além de personagens muito assustadores apresentados durante o desenrolar da história.
+                <img id="mostraSensura" src="./assets/imgs/macabrosSensor.jpg" width="80%" style="margin-top: 10px; cursor: pointer;" onclick="mostrarSensura()">
             </div>
         </div>
     </div>
@@ -67,12 +71,29 @@
 </body>
 <script src="js/changeMode.js"></script>
 <script>
+    function mostrarSensura() {
+        mostraSensura.src = './assets/imgs/macabros.jpg'
+        mostraSensura.style.cursor = 'default'
+    }
+    function mostrarEsconder() {
+        if (dash.style.visibility == "hidden" || dash.style.visibility == "" || dash.style.visibility == null) {
+            dash.style.visibility = "visible"
+            dash.style.height = "100vh"
+            btnGraficos.innerHTML = "ESCONDER"
+        } else if (dash.style.visibility == "visible") {
+            dash.style.visibility = "hidden"
+            dash.style.height = "0vh"
+            btnGraficos.innerHTML = "MOSTRAR"
+        }
+    }
 
     let proximaAtualizacao;
 
     window.onload = obterDadosGrafico(1);
 
-    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    if (sessionStorage.NOME_USUARIO != null) {
+        b_usuario.innerHTML = `Olá, ${sessionStorage.NOME_USUARIO}!`;
+    }
 
     verificar_autenticacao();
 

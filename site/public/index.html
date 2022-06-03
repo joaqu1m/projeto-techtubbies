@@ -95,8 +95,19 @@
 
         var ano = Number(ano_input.value);
         var hoje = new Date();
-        var idade_input = hoje.getFullYear() - ano;
-
+        var idade = hoje.getFullYear() - ano;
+        if (idade >= 0 && idade < 13) {
+            var idade_input = 1
+        }
+        if (idade >= 13 && idade < 21) {
+            var idade_input = 2
+        }
+        if (idade >= 21 && idade < 31) {
+            var idade_input = 3
+        }
+        if (idade >= 31) {
+            var idade_input = 4
+        }
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
         var nomeVar = nome_input.value;

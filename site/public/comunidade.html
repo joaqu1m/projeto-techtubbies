@@ -10,6 +10,7 @@
     
     <link rel="icon" href="./assets/icon/favicon.ico">
     <link rel="stylesheet" href="css/styles.css">
+    <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
     <title>TechTubbies</title>
 </head>
 
@@ -95,7 +96,7 @@
         b_usuario.innerHTML = `Olá, ${sessionStorage.NOME_USUARIO}!`;
     }
 
-    verificar_autenticacao();
+    // verificar_autenticacao();
 
     function alterarTitulo(idAquario) {
         var tituloAquario = document.getElementById("tituloAquario")
@@ -148,16 +149,8 @@
             datasets: [
                 {
                     yAxisID: 'y-umidade',
-                    label: 'Umidade',
+                    label: 'Quantidade',
                     borderColor: '#32B9CD',
-                    backgroundColor: '#32b9cd8f',
-                    fill: true,
-                    data: []
-                },
-                {
-                    yAxisID: 'y-temperatura',
-                    label: 'Temperatura',
-                    borderColor: '#FFF',
                     backgroundColor: '#32b9cd8f',
                     fill: true,
                     data: []
@@ -167,15 +160,14 @@
 
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
-            dados.labels.push(registro.momento_grafico);
-            dados.datasets[0].data.push(registro.umidade);
-            dados.datasets[1].data.push(registro.temperatura);
+            dados.labels.push(registro.faixas);
+            dados.datasets[0].data.push(registro.quantidade);
         }
 
         console.log(JSON.stringify(dados));
 
         var ctx = canvas_grafico.getContext('2d');
-        window.grafico_linha = Chart.Line(ctx, {
+        window.grafico_linha = Chart.Bar(ctx, {
             data: dados,
             options: {
                 responsive: true,
@@ -194,7 +186,7 @@
                         id: 'y-temperatura',
                         ticks: {
                             beginAtZero: true,
-                            max: 100,
+                            max: 10,
                             min: 0
                         }
                     }, {

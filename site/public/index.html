@@ -35,7 +35,7 @@
         <div class="pagina">
             <img src="./assets/hello.gif" class="indexHello">
             <br>
-            <div class="text1" id="aa">
+            <div class="text1">
                 Olá! Esse site é um projeto de blog pessoal feito para a Sprint Individual, um projeto semestral aqui da faculdade Sptech que tem o intuito de testar meu aprendizado próprio nesses
                 meses de facul. Estou cursando bacharelado em sistemas da informação, e esse é o projeto do primeiro semestre. Se quiser checar meu repositório no GitHub, clique
                 <a target="_blank" href="https://github.com/joaqu1m/projeto-techtubbies" style="font-weight: bold; color: black;">aqui</a>
@@ -83,7 +83,6 @@
     <div id="arrowUp" class="arrowUp" onclick="scroll0()">
         <img src="./assets/imgs/gray.png" width="100%" height="100%">
     </div>
-    <!--<button onclick="nomesPessoas()">aaaaaaaaaaaaaaaa</button> botao do vitinho-->
 </body>
 
 </html>
@@ -117,8 +116,7 @@
         var confirmacaoSenhaVar = 'testeDeSenha';
 
         if (nomeVar == "" || emailVar == "" || idadeVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
-            // cardErro.style.display = "block"
-            // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            // cardAlerta.style.display = "block"
             alert('Preencha todos os campos para continuar')
 
             finalizarAguardar();
@@ -148,11 +146,11 @@
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                // cardErro.style.display = "block";
+                // cardAlerta.style.display = "block";
 
-                // mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+                alert('Cadastro realizado com sucesso!')
 
-                alert('Cadastro realizado com sucesso! Redirecionando para tela de Login...')
+                sessionStorage.NOME_USUARIO = nomeVar
 
                 
                 limparFormulario();
@@ -169,7 +167,7 @@
     }
 
     function sumirMensagem() {
-        // cardErro.style.display = "none"
+        // cardAlerta.style.display = "none"
     }
 
     function nomesPessoas() {
@@ -185,7 +183,6 @@
 
             if (resposta.ok) {
                 console.log(resposta);
-                aa.innerHTML = `${resultado}`
 
                 resposta.json().then(json => {
                     console.log(json);
@@ -213,8 +210,6 @@
         })
 
         return false;
-
-
 }
 </script>
 <!-- CÓDIGO PARA MINIGAMES

@@ -28,6 +28,10 @@ if (sessionStorage.mode == "night") {
     sessionStorage.jaFoiDark = true
 }
 function colorir() {
+    if (sessionStorage.jaFoiDark == null && abaComunidade == null) {
+        return
+    }
+
     if (sessionStorage.mode == "night") {
         sessionStorage.mode = "light"
     }

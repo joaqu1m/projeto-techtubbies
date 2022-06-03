@@ -31,9 +31,21 @@
             <div id="idBottomHeader" class="bottomHeaderGeneral bottomHeaderDipsy"></div>
         </div>
         <div class="pagina">
-            <div class="text1">
-                <button onclick="location.href='html/cardMaker.html';">Criador de Perfil</button>
-                <button onclick="colorir()" style="visibility: hidden;" id="btnDarkMode">Dark Mode</button>
+            <div class="title" style="margin: 20px;">
+                Opções Extras
+            </div>
+            <div class="text1" style="margin-bottom: 20px;">Algumas opções são desbloqueáveis</div>
+            <div class="text1 buttonsExtras">
+                <div onclick="location.href='html/cardMaker.html';" class="buttonBox transformScale">
+                    Criador de Perfil
+                </div>
+                <div onclick="colorir()" id="btnDarkMode" class="buttonBox transformScale">
+                    Dark Mode
+                </div>
+            </div>
+            <div class="text1 buttonsExtras">
+                <div class="buttonBox transformScale"></div>
+                <div class="buttonBox transformScale"></div>
             </div>
         </div>
     </div>
@@ -45,7 +57,10 @@
 </html>
 <script src="js/changeMode.js"></script>
 <script>
-    if (sessionStorage.jaFoiDark == "true") {
-        btnDarkMode.style.visibility = "visible"
+    if (sessionStorage.jaFoiDark == null) {
+        btnDarkMode.style.backgroundImage = "url(./assets/imgs/padlock.png)"
+        btnDarkMode.style.cursor = "default"
+        btnDarkMode.style.textDecoration = "line-through"
+        btnDarkMode.classList.remove("transformScale");
     }
 </script>

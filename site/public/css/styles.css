@@ -341,6 +341,29 @@ BLOG
 #btnGraficos:hover {
     cursor: pointer;
 }
+
+.buttonsExtras {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.buttonsExtras .buttonBox {
+    width: 300px;
+    height: 100px;
+    border: 1px solid black;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: 15%;
+    background-position: 20px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.transformScale:hover {
+    transform: scale(1.1);
+}
 /*
 GRAFICOS
 */
@@ -351,37 +374,14 @@ GRAFICOS
     justify-content: space-around;
     height: 0vh;
     visibility: hidden;
-    border: 1px solid black;
+    border: 1px solid #32b9cd8f;
+    margin-top: 10px;
 }
 
 #b_usuario {
     font-weight: 300;
     font-weight: 800;
     font-size: 1.2rem;
-}
-
-.btns-dash {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 30px;
-}
-
-.btn-chart {
-    font-family: "Exo 2", sans-serif;
-    border: 0;
-    font-weight: 600;
-    font-size: 18px;
-    padding: 10px 15px;
-    color: #e6005a;
-    background-color: rgb(255, 147, 201);
-    margin: 5px;
-    border-radius: 3px;
-}
-
-.tituloGraficos {
-    display: flex;
-    justify-content: center;
 }
 
 .graph {

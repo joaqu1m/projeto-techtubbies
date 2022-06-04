@@ -44,7 +44,9 @@
                 </div>
             </div>
             <div class="text1 buttonsExtras">
-                <div class="buttonBox transformScale"></div>
+                <div onclick="location.href='html/game.html';" class="buttonBox transformScale">
+                    Jogo
+                </div>
                 <div class="buttonBox transformScale"></div>
             </div>
         </div>
@@ -57,7 +59,7 @@
 </html>
 <script src="js/changeMode.js"></script>
 <script>
-    if (sessionStorage.jaFoiDark == null) {
+    if (localStorage.jaFoiDark == null) {
         btnDarkMode.style.backgroundImage = "url(./assets/imgs/padlock.png)"
         btnDarkMode.style.cursor = "default"
         btnDarkMode.style.textDecoration = "line-through"

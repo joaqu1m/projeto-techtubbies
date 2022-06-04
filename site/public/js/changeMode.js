@@ -1,8 +1,8 @@
-if (!(sessionStorage.mode == "light" || sessionStorage.mode == "night")) {
-    sessionStorage.mode = "light"
+if (!(localStorage.mode == "light" || localStorage.mode == "night")) {
+    localStorage.mode = "light"
 }
 
-if (sessionStorage.mode == "night") {
+if (localStorage.mode == "night") {
 
     document.body.classList.add("darkBackground");
 
@@ -25,18 +25,18 @@ if (sessionStorage.mode == "night") {
 
     idLogoName.src = "./assets/imgs/techtubbiesDark.png"
 
-    sessionStorage.jaFoiDark = true
+    localStorage.jaFoiDark = true
 }
 function colorir() {
-    if (sessionStorage.jaFoiDark == null && abaComunidade == null) {
+    if (localStorage.jaFoiDark == null && abaComunidade == null) {
         return
     }
 
-    if (sessionStorage.mode == "night") {
-        sessionStorage.mode = "light"
+    if (localStorage.mode == "night") {
+        localStorage.mode = "light"
     }
-    else if (sessionStorage.mode == "light") {
-        sessionStorage.mode = "night"
+    else if (localStorage.mode == "light") {
+        localStorage.mode = "night"
     }
     document.location.reload()
 }

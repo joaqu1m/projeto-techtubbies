@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href=".././assets/icon/favicon.ico">
+    <link rel="stylesheet" href=".././css/styles.css">
+    <title>TechTubbies</title>
+    <style>
+        #gameStart {
+            width: 650px;
+            height: 650px;
+            background-color: rgb(94, 206, 94);
+            border: 2px solid rgb(31, 184, 0);
+            visibility: visible;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        #btnVoltar {
+            width: 125px;
+            height: 50px;
+            align-self: center;
+            margin: 2%;
+            font-size: 25px;
+            background-color: rgb(145, 145, 145);
+            color: white;
+            border: 0px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-family: "Arial Black";
+            justify-content: center;
+            align-items: center;
+            transition: 0.2s;
+        }
+        #btnVoltar:hover {
+            transform: scale(1.1);
+        }
+        #paginaGame {
+            height: 700px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #game {
+            width: 650px;
+            height: 650px;
+            background-color: rgb(94, 206, 94);
+            border: 2px solid rgb(31, 184, 0);
+            display: none;
+        }
+        #char {
+            width: 50px;
+            height: 100px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 50px;
+            position: absolute;
+            transition: 0.1s;
+        }
+        #objeto {
+            width: 50px;
+            height: 50px;
+            background-image: url(".././assets/sprites/custardHighRes.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin-left: 200px;
+            margin-top: 200px;
+            position: absolute;
+        }
+        #contador {
+            color: white;
+            font-family: 'Brush Script MT';
+            font-size: 70px;
+            margin-left: 580px;
+            position: absolute;
+        }
+        #gameWin {
+            width: 650px;
+            height: 0px;
+            background-color: rgb(94, 206, 94);
+            border: 2px solid rgb(31, 184, 0);
+            visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        #selCor {
+            width: 200px;
+            height: 45px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            color: #424242;
+            padding: 12px;
+            font-size: 20px;
+            outline: none;
+            border-color: #000000;
+            border-radius: 5px;
+            margin: 10px;
+        }
+        #charPreview {
+            width: 150px;
+            height: 300px;
+            background-color: white;
+            color: black;
+            padding: 5px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: flex;
+            text-align: center;
+        }
+        #btnIniciar {
+            width: 125px;
+            height: 50px;
+            align-self: center;
+            font-size: 25px;
+            background-color: rgb(42, 160, 68);
+            color: white;
+            border: 0px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-family: "Arial Black";
+            justify-content: center;
+            align-items: center;
+        }
+        #imgFinal {
+            width: 550px;
+            height: 309.38px;
+            background-image: url(".././assets/imgs/vitoria.jpg");
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body style="background-image: url('.././assets/imgs/background-game.png');">
+    <div style="display: flex; flex-direction: column;">
+        <button id="btnVoltar" onclick="location.href='.././extras.html';">VOLTAR</button>
+        <div id="gameStart">
+            <div style="color: white; font-size: 30px; font-family: 'Arial Black';">
+                SELEÇÃO DE PERSONAGEM
+            </div>
+            <div style="display: flex; margin: 50px;">
+                <select id="selCor" onchange="selecionar()">
+                    <option value="0">Selecione aqui</option>
+                    <option value="1">Laa-Laa</option>
+                    <option value="2">Tinky Winky</option>
+                    <option value="3">Dipsy</option>
+                    <option value="4">Po</option>
+                </select>
+                <div style="color: white; font-size: 20px; font-family: 'Arial Black'; margin-left: 30px;">
+                    Preview:
+                    <div id="charPreview">
+                        <span style="align-self: center;">Aguardando seleção</span>
+                    </div>
+                </div>
+            </div>
+            <button onclick="iniciar()" id="btnIniciar">INICIAR</button>
+        </div>
+        <div id="game">
+            <div id="char"></div>
+            <div id="objeto"></div>
+            <div id="contador">00</div>
+        </div>
+        <div id="gameWin">
+            <div style="color: white; font-size: 30px; font-family: 'Arial Black'; margin: 20px;">
+                VOCÊ VENCEU!
+            </div>
+            <div id="imgFinal"></div>
+        </div>
+    </div>
+    <audio src=".././assets/audio/collect.mp3" id="audioPonto"></audio>
+    <audio src=".././assets/audio/victory.mp3" id="audioVitoria"></audio>
+</body>
+
+</html>
+<script>
+    let personagem = ''
+
+    function selecionar() {
+        var cor = selCor.value
+
+        if (cor == 0) {
+            charPreview.style.backgroundImage = ''
+            charPreview.innerHTML = '<span style="align-self: center;">Aguardando seleção</span>'
+        } else if (cor == 1) {
+            charPreview.style.backgroundImage = 'url(".././assets/sprites/lalaChar.png")'
+            charPreview.innerHTML = ''
+            personagem = '1'
+        } else if (cor == 2) {
+            charPreview.style.backgroundImage = 'url(".././assets/sprites/tinkyWinChar.png")'
+            charPreview.innerHTML = ''
+            personagem = '2'
+        } else if (cor == 3) {
+            charPreview.style.backgroundImage = 'url(".././assets/sprites/dipsyChar.png")'
+            charPreview.innerHTML = ''
+            personagem = '3'
+        } else if (cor == 4) {
+            charPreview.style.backgroundImage = 'url(".././assets/sprites/poChar.png")'
+            charPreview.innerHTML = ''
+            personagem = '4'
+        }
+    }
+    let comecou = ''
+    
+    function iniciar() {
+        if (selCor.value == 0) {
+            alert('Selecione uma cor para continuar')
+            return
+        }
+        if (personagem == 1) {
+            char.style.backgroundImage = 'url(".././assets/sprites/lalaChar.png")'
+        } else if (personagem == 2) {
+            char.style.backgroundImage = 'url(".././assets/sprites/tinkyWinChar.png")'
+        } else if (personagem == 3) {
+            char.style.backgroundImage = 'url(".././assets/sprites/dipsyChar.png")'
+        } else if (personagem == 4) {
+            char.style.backgroundImage = 'url(".././assets/sprites/poChar.png")'
+        }
+        gameStart.style.visibility = 'hidden'
+        gameStart.style.height = '0px'
+        game.style.display = 'block'
+        comecou = true
+    }
+
+    audioPonto.volume = 0.2;
+    audioVitoria.volume = 0.2;
+    let localObj = '1st'
+    let pontos = 0
+
+    let charMarginX = 50
+    let charMarginY = 50
+
+    document.addEventListener('keydown', (event) => {
+        if (comecou == '') {
+            return
+        }
+
+        var name = event.key;
+        var code = event.code;
+        console.log(`Key pressed: ${name} \n Key code value: ${code}`);
+
+        if (name == 'ArrowLeft' && charMarginX > 0) {
+            char.style.marginLeft = `${charMarginX - 50}px`
+            charMarginX = charMarginX - 50
+            if (personagem == 1) {
+                char.style.backgroundImage = 'url(".././assets/sprites/lalaLeft.png")'
+            } else if (personagem == 2) {
+                char.style.backgroundImage = 'url(".././assets/sprites/tinkyWinLeft.png")'
+            } else if (personagem == 3) {
+                char.style.backgroundImage = 'url(".././assets/sprites/dipsyLeft.png")'
+            } else if (personagem == 4) {
+                char.style.backgroundImage = 'url(".././assets/sprites/poLeft.png")'
+            }
+        } else if (name == 'ArrowRight' && charMarginX < 600) {
+            char.style.marginLeft = `${charMarginX + 50}px`
+            charMarginX = charMarginX + 50
+            if (personagem == 1) {
+                char.style.backgroundImage = 'url(".././assets/sprites/lalaRight.png")'
+            } else if (personagem == 2) {
+                char.style.backgroundImage = 'url(".././assets/sprites/tinkyWinRight.png")'
+            } else if (personagem == 3) {
+                char.style.backgroundImage = 'url(".././assets/sprites/dipsyRight.png")'
+            } else if (personagem == 4) {
+                char.style.backgroundImage = 'url(".././assets/sprites/poRight.png")'
+            }
+        } else if (name == 'ArrowUp' && charMarginY > 0) {
+            char.style.marginTop = `${charMarginY - 50}px`
+            charMarginY = charMarginY - 50
+            if (personagem == 1) {
+                char.style.backgroundImage = 'url(".././assets/sprites/lalaBack.png")'
+            } else if (personagem == 2) {
+                char.style.backgroundImage = 'url(".././assets/sprites/tinkyWinBack.png")'
+            } else if (personagem == 3) {
+                char.style.backgroundImage = 'url(".././assets/sprites/dipsyBack.png")'
+            } else if (personagem == 4) {
+                char.style.backgroundImage = 'url(".././assets/sprites/poBack.png")'
+            }
+        } else if (name == 'ArrowDown' && charMarginY < 550) {
+            char.style.marginTop = `${charMarginY + 50}px`
+            charMarginY = charMarginY + 50
+            if (personagem == 1) {
+                char.style.backgroundImage = 'url(".././assets/sprites/lalaChar.png")'
+            } else if (personagem == 2) {
+                char.style.backgroundImage = 'url(".././assets/sprites/tinkyWinChar.png")'
+            } else if (personagem == 3) {
+                char.style.backgroundImage = 'url(".././assets/sprites/dipsyChar.png")'
+            } else if (personagem == 4) {
+                char.style.backgroundImage = 'url(".././assets/sprites/poChar.png")'
+            }
+        }
+
+        checarColisao();
+    });
+
+    function checarColisao() {
+        if (localObj == '1st' && charMarginX == 200 && (charMarginY == 150 || charMarginY == 200)) {
+            localObj = '2st'
+            objeto.style.marginLeft = '500px'
+            objeto.style.marginTop = '300px'
+            contar();
+        } else if (localObj == '2st' && charMarginX == 500 && (charMarginY == 250 || charMarginY == 300)) {
+            localObj = '3st'
+            objeto.style.marginLeft = '250px'
+            objeto.style.marginTop = '550px'
+            contar();
+        } else if (localObj == '3st' && charMarginX == 250 && (charMarginY == 550 || charMarginY == 500)) {
+            localObj = '1st'
+            objeto.style.marginLeft = '200px'
+            objeto.style.marginTop = '200px'
+            contar();
+        }
+
+        if (pontos == 6) {
+            game.style.display = 'none'
+            gameWin.style.visibility = 'visible'
+            gameWin.style.height = '650px'
+            audioVitoria.play();
+            setTimeout(() => {
+                audioVitoria.volume = 0;
+            }, 2000)
+        }
+    }
+
+    function contar() {
+        pontos++
+        contador.innerHTML = `0${pontos}`
+        audioPonto.play();
+    }
+</script>

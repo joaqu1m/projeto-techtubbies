@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0px;
     font-family: arial;
@@ -363,6 +367,19 @@ BLOG
 }
 .transformScale:hover {
     transform: scale(1.1);
+}
+#imgModelagem {
+    width: 1000px;
+    height: 500px;
+    background-color: rgb(219, 219, 219);
+    background-image: url('.././assets/imgs/techtubbies.png');
+    background-size: 600px;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: fixed;
+    margin-top: 20vh;
+    display: none;
+    cursor: pointer;
 }
 /*
 GRAFICOS

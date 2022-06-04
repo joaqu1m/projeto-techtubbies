@@ -45,24 +45,51 @@
             </div>
             <div class="text1 buttonsExtras">
                 <div onclick="location.href='html/game.html';" class="buttonBox transformScale">
-                    Jogo
+                    Minigame
                 </div>
-                <div class="buttonBox transformScale"></div>
+                <div onclick="location.href='html/creditos.html';" class="buttonBox transformScale">
+                    Créditos
+                </div>
+            </div>
+            <div class="text1 buttonsExtras">
+                <div onclick="location.href='./assets/Documentação do Projeto Individual.pdf';" class="buttonBox transformScale">
+                    Documentação
+                </div>
+                <div onclick="location.href='html/backlog.html';" class="buttonBox transformScale">
+                    Backlog
+                </div>
+            </div>
+            <div class="text1 buttonsExtras">
+                <div onclick="imgBanco();" class="buttonBox transformScale">
+                    Modelagem Lógica
+                </div>
             </div>
         </div>
     </div>
     <div id="arrowUp" class="arrowUp" onclick="scroll0()">
         <img src="./assets/imgs/gray.png" width="100%" height="100%">
     </div>
+    <div id="imgModelagem" onclick="imgBanco()"></div>
 </body>
 
 </html>
 <script src="js/changeMode.js"></script>
 <script>
+    let ligado = 0
+
     if (localStorage.jaFoiDark == null) {
         btnDarkMode.style.backgroundImage = "url(./assets/imgs/padlock.png)"
         btnDarkMode.style.cursor = "default"
         btnDarkMode.style.textDecoration = "line-through"
         btnDarkMode.classList.remove("transformScale");
+    }
+    function imgBanco() {
+        if (ligado == 0) {
+            imgModelagem.style.display = 'block'
+            ligado = 1
+        } else if (ligado == 1) {
+            imgModelagem.style.display = 'none'
+            ligado = 0
+        }
     }
 </script>

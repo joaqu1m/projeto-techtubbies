@@ -8,7 +8,7 @@ CREATE TABLE usuario (
 	email VARCHAR(50),
 	idade INT
 );
-
+/*
 insert into usuario (nome, email, idade) values
 ('Rafaela Carvalho Barros', 'RafaelaCarvalhoBarros@dayrep.com', 3),
 ('Beatrice Correia Santos', 'BeatriceCorreiaSantos@jourrapide.com', 4),
@@ -24,3 +24,4 @@ select case
         when idade = 3 then '3- De 21 a 30'
         when idade = 4 then '4- 31+'
         end as faixas, count(idade) as 'quantidade' from usuario group by faixas order by 1 desc;
+*/

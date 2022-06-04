@@ -58,6 +58,12 @@
                 <b style="cursor: pointer;" onclick="revelarEspecial()" id="btnEspecial">Agradecimentos Especiais +</b>
                 <br>
                 <div id="divEspecial"></div>
+                <br>
+                <b style="cursor: pointer;" onclick="revelarTester()" id="btnTester">Beta Testers +</b>
+                <br>
+                <span style="color:gray; font-size: 15px;">(amigos que me ajudaram a testar as funcionalidades do site)</span>
+                <br>
+                <div id="divTester"></div>
             </div>
         </div>
     </div>
@@ -67,15 +73,18 @@
 <script>
     let listaGrupo = ['Bruna Carvalho', 'Erika Rocha', 'Henrique Medeiros', 'Nathália Burlina', 'Pedro Moretti']
     let listaFamilia = ['Catarina G Pires', 'Maurício Gimenes', 'Rita de Cássia']
-    let listaEspecial = ['Victor Lage', 'Gian Filipo', 'Mauricio', 'Monitor Rafa']
+    let listaEspecial = ['Victor Lage', 'Gian Fillipo', 'Mauricio Uesso', 'Monitor Rafa']
+    let listaTester = ['Lucas "Close" Sacanato', 'Edson Morro', 'João Henrique Pacheco']
 
     let linhasGrupo = listaGrupo.length
     let linhasFamilia = listaFamilia.length
     let linhasEspecial = listaEspecial.length
+    let linhasTester = listaTester.length
 
     let reveladoGrupo = 0
     let reveladoFamilia = 0
     let reveladoEspecial = 0
+    let reveladoTester = 0
 
     function revelarGrupo() {
         if (reveladoGrupo == 0) {
@@ -114,6 +123,19 @@
             divEspecial.innerHTML = ''
             btnEspecial.innerHTML = 'Agradecimentos Especiais +'
             reveladoEspecial = 0
+        }
+    }
+    function revelarTester() {
+        if (reveladoTester == 0) {
+            for (var contador = 0; contador < linhasTester; contador++) {
+                divTester.innerHTML += `${listaTester[contador]} <br>`
+            }
+            btnTester.innerHTML = 'Beta Testers -'
+            reveladoTester = 1
+        } else if (reveladoTester == 1) {
+            divTester.innerHTML = ''
+            btnTester.innerHTML = 'Beta Testers +'
+            reveladoTester = 0
         }
     }
 </script>

@@ -1,27 +1,43 @@
-CREATE DATABASE acquatec;
+CREATE DATABASE techtubbies;
 
-USE acquatec;
+USE techtubbies;
+
+CREATE TABLE faixaEtaria (
+idIdade INT PRIMARY KEY,
+de INT,
+ate INT
+);
+
+INSERT INTO faixaEtaria VALUES
+(1, 1, 12),
+(2, 13, 20),
+(3, 21, 30),
+(4, 31, NULL);
+
+SELECT * FROM faixaEtaria;
 
 CREATE TABLE usuario (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(50),
 	email VARCHAR(50),
-	idade INT
+	fkIdade INT,
+    FOREIGN KEY (fkIdade) REFERENCES faixaEtaria (idIdade)
 );
-/*
-insert into usuario (nome, email, idade) values
+
+INSERT INTO usuario (nome, email, fkIdade) VALUES
 ('Rafaela Carvalho Barros', 'RafaelaCarvalhoBarros@dayrep.com', 3),
 ('Beatrice Correia Santos', 'BeatriceCorreiaSantos@jourrapide.com', 4),
 ('Sophia Pereira Correia', 'SophiaPereiraCorreia@rhyta.com', 1),
 ('Caio Correia Cunha', 'CaioCorreiaCunha@armyspy.com', 1),
 ('Lavinia Carvalho Almeida', 'LaviniaCarvalhoAlmeida@teleworm.us', 3);
 
-select * from usuario;
+SELECT * FROM usuario;
 
-select case
-        when idade = 1 then '1- De 1 a 12'
-        when idade = 2 then '2- De 13 a 20'
-        when idade = 3 then '3- De 21 a 30'
-        when idade = 4 then '4- 31+'
-        end as faixas, count(idade) as 'quantidade' from usuario group by faixas order by 1 desc;
-*/
+SELECT CASE
+        WHEN fkIdade = 1 THEN 'De 1 a 12'
+        WHEN fkIdade = 2 THEN 'De 13 a 20'
+        WHEN fkIdade = 3 THEN 'De 21 a 30'
+        WHEN fkIdade = 4 THEN '31+'
+        END AS faixas, count(fkIdade) AS 'quantidade' FROM usuario GROUP BY faixas ORDER BY fkIdade DESC;
+
+SELECT nome, email, de, ate FROM usuario JOIN faixaEtaria ON fkIdade = idIdade;

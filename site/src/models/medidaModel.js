@@ -7,19 +7,19 @@ function buscarUltimasMedidas(idAquario, limite_linhas) {
     if (process.env.AMBIENTE_PROCESSO == "producao") {
         instrucaoSql = `select top ${limite_linhas}
         dht11_temperatura as temperatura, 
-        dht11_umidade as umidade,  
+        dht11_umidade as umidade,
                         momento,
                         CONVERT(varchar, momento, 108) as momento_grafico
                     from medida
                     where fk_aquario = ${idAquario}
                     order by id desc`;
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `select case
-        when idade = 1 then '1- De 1 a 12'
-        when idade = 2 then '2- De 13 a 20'
-        when idade = 3 then '3- De 21 a 30'
-        when idade = 4 then '4- 31+'
-        end as faixas, count(idade) as 'quantidade' from usuario group by faixas order by 1 desc;`;
+        instrucaoSql = `SELECT CASE
+        WHEN fkIdade = 1 THEN 'De 1 a 12'
+        WHEN fkIdade = 2 THEN 'De 13 a 20'
+        WHEN fkIdade = 3 THEN 'De 21 a 30'
+        WHEN fkIdade = 4 THEN '31+'
+        END AS faixas, count(fkIdade) AS 'quantidade' FROM usuario GROUP BY faixas ORDER BY fkIdade DESC;`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
@@ -43,7 +43,7 @@ function buscarMedidasEmTempoReal(idAquario) {
                     order by id desc`;
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `select idade from usuario`;
+        instrucaoSql = `select fkIdade from usuario`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return

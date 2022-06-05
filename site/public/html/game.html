@@ -177,12 +177,15 @@
             <div id="imgFinal"></div>
         </div>
     </div>
+    <div id="alertDiv"></div>
+    <audio src=".././assets/audio/ding-sound-effect-1.mp3" id="audioDing"></audio>
     <audio src=".././assets/audio/collect.mp3" id="audioPonto"></audio>
     <audio src=".././assets/audio/victory.mp3" id="audioVitoria"></audio>
 </body>
 
 </html>
 <script>
+    audioDing.volume = 0.2;
     let personagem = ''
 
     function selecionar() {
@@ -213,7 +216,14 @@
     
     function iniciar() {
         if (selCor.value == 0) {
-            alert('Selecione uma cor para continuar')
+            alertDiv.style.visibility = "visible"
+            alertDiv.innerHTML = "Selecione uma cor para continuar"
+            audioDing.play();
+
+
+            setTimeout(() => {
+                alertDiv.style.visibility = "hidden"
+            }, "3000")
             return
         }
         if (personagem == 1) {

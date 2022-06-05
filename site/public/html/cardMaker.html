@@ -184,10 +184,13 @@
             </div>
         </div>
     </div>
+    <div id="alertDiv"></div>
+    <audio src=".././assets/audio/ding-sound-effect-1.mp3" id="audioDing"></audio>
 </body>
 
 </html>
 <script>
+    audioDing.volume = 0.2;
     var foto = ''
 
     function registrar() {
@@ -212,11 +215,25 @@
         }
 
         if (nome == '' || dia == 0 || mes == 0 || ano == 0 || cor == 0) {
-            alert('Preencha todos os campos para continuar')
+            alertDiv.style.visibility = "visible"
+            alertDiv.innerHTML = "Preencha todos os campos para continuar"
+            audioDing.play();
+
+
+            setTimeout(() => {
+                alertDiv.style.visibility = "hidden"
+            }, "3000")
             return
         }
         if (dia <= 0 || mes <= 0 || ano <= 0 || dia > 31 || mes > 12 || ano > (new Date().getFullYear())) {
-            alert('Data inválida')
+            alertDiv.style.visibility = "visible"
+            alertDiv.innerHTML = "Data inválida"
+            audioDing.play();
+
+
+            setTimeout(() => {
+                alertDiv.style.visibility = "hidden"
+            }, "3000")
             return
         }
 

@@ -16,13 +16,29 @@ body {
     margin-top: 3%;
 }
 
-.arrowUp {
+#arrowUp {
     width: 10vw;
     position: fixed;
     margin-top: 100vh;
     margin-left: 80vw;
     transition: 0.5s;
     cursor: pointer;
+}
+#alertDiv {
+    width: 25vh;
+    height: 10vh;
+    position: fixed;
+    margin-top: 2vh;
+    margin-left: 80vh;
+    background-color: #e2e2e2;
+    border: 3px solid #797979;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: "Arial Black";
+    visibility: hidden;
 }
 
 /*

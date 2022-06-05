@@ -44,6 +44,9 @@
                 <div class="graph">
                     <canvas id="canvas_grafico"></canvas>
                 </div>
+                <div class="graph">
+                    <canvas id="canvas_grafico2"></canvas>
+                </div>
             </div>
             <div class="title" style="margin-top: 50px; margin-bottom: 30px;">Criações da comunidade</div>
             <div class="text1">
@@ -65,6 +68,11 @@
 <script src="js/changeMode.js"></script>
 <script>
     var abaComunidade = true
+
+    var testeLabel = []
+    var testeDataset = []
+    var totalNumeros = ''
+    var datasetPorcentagem = []
     
     function mostrarSensura() {
         mostraSensura.src = './assets/imgs/macabros.jpg'
@@ -73,7 +81,7 @@
     function mostrarEsconder() {
         if (dash.style.visibility == "hidden" || dash.style.visibility == "" || dash.style.visibility == null) {
             dash.style.visibility = "visible"
-            dash.style.height = "100vh"
+            dash.style.height = "140vh"
             btnGraficos.innerHTML = "ESCONDER"
         } else if (dash.style.visibility == "visible") {
             dash.style.visibility = "hidden"
@@ -140,7 +148,19 @@
                     yAxisID: 'y-umidade',
                     label: 'Quantidade',
                     borderColor: '#32B9CD',
-                    backgroundColor: '#32b9cd8f',
+                    backgroundColor: '#8cd8e3',
+                    fill: true,
+                    data: []
+                }
+            ]
+        };
+        var dados2 = {
+            labels: [],
+            datasets: [
+                {
+                    yAxisID: 'y-umidade',
+                    label: 'Quantidade',
+                    backgroundColor: ['#db3b3b', '#7d52e3', '#fdff73', '#5fd980'],
                     fill: true,
                     data: []
                 }
@@ -151,6 +171,19 @@
             var registro = resposta[i];
             dados.labels.push(registro.faixas);
             dados.datasets[0].data.push(registro.quantidade);
+            testeLabel.push(registro.faixas);
+            testeDataset.push(registro.quantidade);
+        }
+        for (var contador = 0; contador < testeDataset.length; contador++) {
+            totalNumeros = Number(totalNumeros) + Number(testeDataset[contador])
+        }
+        for (var contador = 0; contador < testeDataset.length; contador++) {
+            datasetPorcentagem.push(((Number(testeDataset[contador]) * 100) / Number(totalNumeros)).toFixed(2))
+        }
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            dados2.labels.push(registro.faixas);
+            dados2.datasets[0].data.push(datasetPorcentagem[i]);
         }
 
         console.log(JSON.stringify(dados));
@@ -194,6 +227,10 @@
                 }
             }
         });
+        var ctx2 = canvas_grafico2.getContext('2d');
+        window.grafico_linha2 = Chart.Doughnut(ctx2, {
+            data: dados2
+        });
 
         setTimeout(() => atualizarGrafico(idAquario, dados), 2000);
     }
@@ -224,6 +261,7 @@
                     dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
 
                     window.grafico_linha.update();
+                    window.grafico_linha2.update();
 
                     // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
                     proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados), 2000);

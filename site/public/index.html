@@ -80,19 +80,33 @@
             </div>
         </div>
     </div>
-    <div id="arrowUp" class="arrowUp" onclick="scroll0()">
+    <div id="arrowUp" onclick="scroll0()">
         <img src="./assets/imgs/gray.png" width="100%" height="100%">
     </div>
+    <div id="alertDiv"></div>
+    <audio src="./assets/audio/ding-sound-effect-1.mp3" id="audioDing"></audio>
 </body>
 
 </html>
 <script src="js/changeMode.js"></script>
 <script>
+    audioDing.volume = 0.2;
+
     // lembre-se do npm run dev!!!
     function cadastrar() {
         aguardar();
 
         var ano = Number(ano_input.value);
+        if (ano <= 0|| ano > (new Date().getFullYear())) {
+            alertDiv.style.visibility = "visible"
+            alertDiv.innerHTML = "Ano inválido"
+            audioDing.play();
+
+            setTimeout(() => {
+                alertDiv.style.visibility = "hidden"
+                return
+            }, "3000")
+        }
         var hoje = new Date();
         var idade = hoje.getFullYear() - ano;
         if (idade >= 0 && idade < 13) {
@@ -111,21 +125,36 @@
         // Agora vá para o método fetch logo abaixo
         var nomeVar = nome_input.value;
         var emailVar = email_input.value;
-        var idadeVar = idade_input  ;
+        var idadeVar = idade_input;
         var senhaVar = 'testeDeSenha';
         var confirmacaoSenhaVar = 'testeDeSenha';
 
         if (nomeVar == "" || emailVar == "" || idadeVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
-            // cardAlerta.style.display = "block"
-            alert('Preencha todos os campos para continuar')
+            alertDiv.style.visibility = "visible"
+            alertDiv.innerHTML = "Preencha todos os campos para continuar"
+            audioDing.play();
 
+            setTimeout(() => {
+                alertDiv.style.visibility = "hidden"
+            }, "3000")
             finalizarAguardar();
             return false;
         }
         else {
             setInterval(sumirMensagem, 5000)
         }
-    console.log("antes do fetch");
+        if (emailVar.indexOf('@') < 0 || emailVar.indexOf('.') < 0) {
+            alertDiv.style.visibility = "visible"
+            alertDiv.innerHTML = "Email inválido"
+            audioDing.play();
+
+            setTimeout(() => {
+                alertDiv.style.visibility = "hidden"
+            }, "3000")
+            finalizarAguardar();
+            return false;
+        }
+        console.log("antes do fetch");
         // Enviando o valor da nova input
         fetch("/usuarios/cadastrar", {
             method: "POST",
@@ -146,15 +175,18 @@
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                // cardAlerta.style.display = "block";
-
-                alert('Cadastro realizado com sucesso!')
+                alertDiv.style.visibility = "visible"
+                alertDiv.innerHTML = "Cadastro realizado com sucesso!"
+                audioDing.play();
 
                 sessionStorage.NOME_USUARIO = nomeVar
 
+                setTimeout(() => {
+                    alertDiv.style.visibility = "hidden"
+                    limparFormulario();
+                    finalizarAguardar();
+                }, "3000")
                 
-                limparFormulario();
-                finalizarAguardar();
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
             }

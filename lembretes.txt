@@ -1,0 +1,8 @@
+LEMBRETES
+['10 MIN DE APRESENTAÇAO - ORGANIZAR BEM'],
+['Ressaltar que meu site está na nuvem mas sem o NODE']
+['Falar sobre validações nos campos'],
+['Dar um gosto do código dizendo coisas como (usei IF ELSE aqui)'],
+['Ressaltar que eu fiz o site do 0 enquanto os outros pegaram um modelo pronto'],
+['Me explicar sobre as APIs e o NODE'],
+['Ter motivo para os elementos do site, dizer como eu gostei de cada coisa'],
